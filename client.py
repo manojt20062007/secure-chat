@@ -9,7 +9,13 @@ def signup():
     password = input("Enter password: ")
 
     res = requests.post(f"{BASE_URL}/signup", json={"username": username, "password": password})
-    print(res.json()["message"])
+    
+    try:
+        print(res.json()["message"])
+    except Exception as e:
+        print("[ERROR] Server returned non-JSON response:")
+        print("Status Code:", res.status_code)
+        print("Response Text:", res.text)
 
 def login():
     global username
