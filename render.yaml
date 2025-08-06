@@ -1,6 +1,6 @@
 services:
-  - type: worker
-    name: secure-chat-server
+  - type: web
+    name: secure-chat-api
     runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: python server.py
